@@ -18,6 +18,7 @@ import { FormularioDeposito } from '../components/FormularioDeposito/FormularioD
 import { FormularioRetiro } from '../components/FormularioRetiro/FormularioRetiro';
 import { FormularioTransferencia } from '../components/FormularioTransferencia/FormularioTransferencia';
 import { Tabla } from '../components/Tabla/Tabla';
+import { Login } from '../components/Login/Login';
 
 export const RouteIntegration = () => {
 
@@ -170,6 +171,10 @@ export const RouteIntegration = () => {
                 //     path: "Inicial",
                 //     element: <Inicial />,
                 // },
+                {
+                    path: "login",
+                    element: <Login />,
+                },
                 {
                     /* Componente tabla, qu envia props(items,title) y recibe onChangeStatus (Osea algo que envio un componente hijo) */
                     path: "tabla",

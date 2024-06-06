@@ -8,6 +8,7 @@ export const FirstProvider = ({ children }) => {
 
     // Definimos todos los Datos que vamos a compartir  Hooks
     const [items, setItems] = useState([]);
+    const [user, setUser] = useState(null);
     const title = "Titulo desde el proveedor de contexto";
 
     /* Se migra las funcionalidades de RoutetIntegration o el documento donde habia una logica anterior*/
@@ -114,10 +115,20 @@ export const FirstProvider = ({ children }) => {
         setItems((prevState) => [...prevState]);            // Crea uno nuevo con la modificacion y renderiza              
     };
 
+    const getLoggedUser = () => {
+        return user;
+    };
+
+    const loginUser = (user, token) => {
+        setUser(user);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+    };
+
 
     /* ------------------------------------------------------------- JSX ------------------------------------------------------------------------- */
     return (
-        <FirstContext.Provider value={{ items, title, addClient, updateStateCliente, addDeposit, withDrawals, addTransfer }}>
+        <FirstContext.Provider value={{ items, title, addClient, updateStateCliente, addDeposit, withDrawals, addTransfer, getLoggedUser, loginUser }}>
             {children}
         </FirstContext.Provider>
     );
