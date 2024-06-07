@@ -1,7 +1,19 @@
 import { Outlet, Link } from "react-router-dom";
 import './Dashboard.css'
 
+// Usando el Contexto
+import { UseFirst } from "../../context/UseFirst";
+
 export default function Dashboard() {
+
+  const { user } = UseFirst();
+
+  let superMessage = null;
+
+  if (user != null) {
+    superMessage = `Hello ${user.name} again!`;
+  }
+
   return (
     <>
       <div id="sidebar">
@@ -62,7 +74,7 @@ export default function Dashboard() {
         </nav>
       </div>
       <div id="detail">
-        <h1>Bienvenido a la plataforma de Simulador Bancario </h1>
+        <h1>Bienvenido a la plataforma de Simulador Bancario </h1><h1 className="supermessage">{superMessage}</h1>
         <Outlet />
       </div>
     </>

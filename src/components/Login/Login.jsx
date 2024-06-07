@@ -22,7 +22,7 @@ export const Login = () => {
             showMessage(
                 "success",
                 "bienvenido",
-                `${data.user.name} ${data.user.lastName}`
+                `${data.user.name}`
             );
             loginUser(data.user, data.token);
             //obtengo la información de data
@@ -30,19 +30,17 @@ export const Login = () => {
             //login incorrecto, muestro el mensaje
             showMessage("warning", message, "");
         }
-
-        useEffect(() => {
-            if (getLoggedUser()) {
-                navigate("/");
-            } else {
-                setIsLoading(false);
-            }
-        }, [getLoggedUser, navigate]);
-
-        if (isLoading) return "";
-
-
     }
+
+    useEffect(() => {
+        if (getLoggedUser()) {
+            navigate("/tabla");
+        } else {
+            setIsLoading(false);
+        }
+    }, [getLoggedUser, navigate]);
+
+    if (isLoading) return "";
 
     return (
         <>

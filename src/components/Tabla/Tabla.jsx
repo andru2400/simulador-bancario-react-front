@@ -14,6 +14,8 @@ export const Tabla = () => {
     // Traemos lo que vayamos a usar del contexto !
     const { items, title, updateStateCliente } = UseFirst();
 
+    console.log(items)
+
     return (
         <>
             <h3>{title}</h3>
@@ -38,8 +40,8 @@ export const Tabla = () => {
                             <td>{item.age}</td>
                             <td>{item.status}</td>
                             <td>{item.accountType}</td>
-                            <td>{item.type}</td>
-                            <td>{item.mostrarSaldo()}</td>
+                            <td>Pendiente por llamar ... desde fetch</td>
+                            <td>{item.saldo}</td>
                             <td>
                                 <button
                                     className="btn btn-success"

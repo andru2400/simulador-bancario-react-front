@@ -1,4 +1,7 @@
 import Swal from 'sweetalert2';
+import { useEffect } from "react";
+
+import { getAllServer } from "../components/Network/allNetwork";
 
 import { createContext, useState } from "react";
 
@@ -10,6 +13,10 @@ export const FirstProvider = ({ children }) => {
     const [items, setItems] = useState([]);
     const [user, setUser] = useState(null);
     const title = "Titulo desde el proveedor de contexto";
+
+    useEffect(() => {
+        getAllServer(setItems);
+    }, []);
 
     /* Se migra las funcionalidades de RoutetIntegration o el documento donde habia una logica anterior*/
 
@@ -128,7 +135,7 @@ export const FirstProvider = ({ children }) => {
 
     /* ------------------------------------------------------------- JSX ------------------------------------------------------------------------- */
     return (
-        <FirstContext.Provider value={{ items, title, addClient, updateStateCliente, addDeposit, withDrawals, addTransfer, getLoggedUser, loginUser }}>
+        <FirstContext.Provider value={{ items, title, addClient, updateStateCliente, addDeposit, withDrawals, addTransfer, getLoggedUser, loginUser, user }}>
             {children}
         </FirstContext.Provider>
     );
