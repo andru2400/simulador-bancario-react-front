@@ -54,6 +54,7 @@ export const FormularioRegistro = () => {
     // Funcion para el click al boton enviar del formulario, podemos llamarlo de cualquier forma, pero por lo general handle + Como lo Definamos
     const handleSubmit = (event) => {
         event.preventDefault();
+        let result = {};
 
         // Moldea con el modelo de la clase para que sea un objeto Cliente
         const cliente = new Cliente();

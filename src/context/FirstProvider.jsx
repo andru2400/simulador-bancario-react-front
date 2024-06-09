@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import { useEffect } from "react";
 
-import { getAllServer } from "../components/Network/allNetwork";
+import { getAllServer , createTodoServer} from "../components/Network/allNetwork";
 
 import { createContext, useState } from "react";
 
@@ -23,20 +23,22 @@ export const FirstProvider = ({ children }) => {
     /* ---------------------------------------------------------- Funcion para actualizar -------------------------------------------------------------- */
     const addClient = (cli) => {
 
-        const buscarCliente = items.find(cliente => cliente.id === cli.id);
+        let response = {};
+        response = createTodoServer(cli);
+        // const buscarCliente = items.find(cliente => cliente.id === cli.id);
 
-        if (buscarCliente !== undefined) {
-            Swal.fire({
-                title: 'Error!', text: 'Esta cuenta ya existe', icon: 'error', confirmButtonText: 'Cool'
-            })
-            return false;
-        }
+        // if (buscarCliente !== undefined) {
+        //     Swal.fire({
+        //         title: 'Error!', text: 'Esta cuenta ya existe', icon: 'error', confirmButtonText: 'Cool'
+        //     })
+        //     return false;
+        // }
 
         setItems((prevState) => [...prevState, cli]);   // es una función de actualización del estado. Toma el estado anterior como argumento (prevState) y      
 
-        Swal.fire({
-            title: 'Hecho !', text: 'Se agrego exitosamente el cliente, revise la tabla', icon: 'success', confirmButtonText: 'Entendido'
-        })
+        // Swal.fire({
+        //     title: 'Hecho !', text: 'Se agrego exitosamente el cliente, revise la tabla', icon: 'success', confirmButtonText: 'Entendido'
+        // })
     };
 
     /* ----------------------------------------------------------Funcion para actualizar --------------------------------------------------------------- */
