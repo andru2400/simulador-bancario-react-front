@@ -19,6 +19,7 @@ export const FormularioRegistro = () => {
 
     // usamos las herramientas de useSate de react, Estos son hooks
     const [identificacion, setIdentificacion] = useState("");
+    const [email, setEmail] = useState("");
     const [nombre, setNombre] = useState("");
     const [edad, setEdad] = useState("");
     const [tipoCuenta, setTipoCuenta] = useState("");
@@ -63,6 +64,7 @@ export const FormularioRegistro = () => {
         cliente.age = edad;
         cliente.accountType = tipoCuenta;
         cliente.type = 'cliente';
+        cliente.email = email;
         console.log(cliente);
 
         let validation = validationRequest(cliente);
@@ -88,6 +90,9 @@ export const FormularioRegistro = () => {
                             <div className="container">
                                 <label>Ingresa Identificacion</label><br />
                                 <input type="text" name="id1" id="id1" placeholder="Ingresa Identificacion" onChange={(event) => setIdentificacion(event.target.value)} required /><br /><br />
+
+                                <label>Ingresa Email</label><br />
+                                <input type="text" name="email1" id="email1" placeholder="Ingresa email" onChange={(event) => setEmail(event.target.value)} required /><br /><br />
 
                                 <label>Ingresa Nombre</label><br />
                                 <input type="text" name="name1" id="name1" placeholder="Ingresa Nombre" onChange={(event) => setNombre(event.target.value)} required /><br /><br />

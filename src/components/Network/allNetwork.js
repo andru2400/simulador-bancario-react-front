@@ -35,6 +35,7 @@ export const createTodoServer = async (cli) => {
       status: cli.status,
       type: cli.type,
       accountType: cli.accountType,
+      email: cli.email,
     };
 
     let response = await fetch(`${URL_CREATE_API}`, {
