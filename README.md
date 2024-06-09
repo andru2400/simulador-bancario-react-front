@@ -28,5 +28,16 @@ Currently, two official plugins are available:
     2.9     creamos la carpeta routes, para la integracion de react route
     2.9     creamos la carpeta context
 
+3. Ingreso a pruebas.
 
+
+
+Correo de prubeas login
+    -   andres@hotmail.com
+
+Password
+    -   123456
+
+Deberia loguear ver listado de la bd, y crear usuario.
+Nota (Esta incompleto, falta muchas funcionalidades pero se deja como presentable)-
 
